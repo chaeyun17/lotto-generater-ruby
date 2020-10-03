@@ -1,24 +1,21 @@
-# README
+# 로또 번호 생성기
+로또 번호를 자동으로 생성하는 웹 서비스입니다. Ruby On Rails 프레임워크 학습용으로 만드는 토이 프로젝트입니다.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 요구사항
+1. 1~45 범위의 숫자를 6개 생성합니다.
+1. 필요한 로또 번호 수를 입력하면 그 수에 맞게 로또 번호를 생성합니다. 예를 들어, 2개를 입력하면 번호 6개가 한 세트로 묶어서 총 2 세트(총 16개 번호)로 번호가 출력됩니다.
+1. 한 세트(총 6개의 번호들)의 번호가 마음에 들지 않을 시, 그 세트만 재발급받을 수 있도록 합니다.
+1. 웹 서비스로 합니다.
+1. 시간이 남을 시, 리액트로 프론트엔드를 구현해봅니다.
 
-Things you may want to cover:
+## 토이 프로젝트 목적
+- Ruby 의 언어와 Ruby On Rails 간단한 활용법을 익히는 것입니다.
 
-* Ruby version
+## 프로젝트 기한
+20.10.03 ~ 20.10.31
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 기술 스펙
+- Ruby 
+- Ruby On Rails
+- SQLite
+- (선택) React
