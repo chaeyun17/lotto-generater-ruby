@@ -1,2 +1,59 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="container">
+  <div id="header">
+    <h1>로또 생성기</h1>
+  </div>
+  <div id="body">
+    <div id="control">
+      <%= form_tag(welcome_index_path, :method => "get") do %>
+        <%= label_tag(:amount, "번호 갯수 ") %>
+        <%= number_field_tag(:amount, @amount) %>
+        <%= submit_tag("생성") %>
+      <% end %>
+    </div>
+    <div id="content">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">번호</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @lotto_groupOfNumbers.each_with_index do |numbers, idx| %>
+            <tr>
+              <th scope="row"><%= idx+1 %></th>
+              <td>
+                <% numbers.each do |num| %>
+                  <span class="number"><%= num %></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style lang="">
+  #header{
+    margin-top: 30px;
+    border-bottom: 1px solid black;
+  }
+  #body{
+    margin-top: 10px;
+  }
+  #control{
+  }
+  #content{
+    margin-top: 10px;
+  }
+  span.number{
+    display: inline-block;
+    width: 2rem;
+  }
+</style>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
