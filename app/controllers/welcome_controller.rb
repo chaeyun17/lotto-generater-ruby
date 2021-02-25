@@ -1,3 +1,5 @@
+require 'set'
+
 class WelcomeController < ApplicationController
   def index
     if params.has_key?(:amount) and !params[:amount].empty?
@@ -14,13 +16,22 @@ class WelcomeController < ApplicationController
   def generate_lotto(amount)
     groupOfNumbers = []
     for i in (1..amount) do
-      numbers = []
-      for num in (0..5) do
-        numbers[num] = rand(1..45)
-      end
-      numbers = numbers.sort()
-      groupOfNumbers[i-1] = numbers
+      groupOfNumbers[i-1] = generate_lotto_number()
     end
     return groupOfNumbers
   end
+
+  private
+  def generate_lotto_number()
+    picks = Set.new
+    for i in (1..6) do
+      randomNum = rand(1..45)
+      while picks.member?(randomNum) do 
+        randomNum = rand(1..45)
+      end
+      picks.add(randomNum)
+    end
+    return picks
+  end
+
 end
