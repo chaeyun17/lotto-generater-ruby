@@ -24,7 +24,7 @@ class LottoController < ApplicationController
 
   private
   def generate_lotto_number()
-    picks = Set.new
+    picks = SortedSet.new
     for i in (1..6) do
       randomNum = rand(1..45)
       while picks.member?(randomNum) do 
